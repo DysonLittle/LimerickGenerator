@@ -16,12 +16,6 @@ Limerick::Limerick(std::string limerick)
 		std::getline(iss, line, '\n');
 		lines[i] = Limerick_Line(line);
 	}
-	//this might not work
-	std::getline(iss, line, ',');
-	if (line != "")
-	{
-		std::cout << "Warning: detected limerick with more than five lines!\n";
-	}
 }
 
 Limerick::Limerick(Limerick_Line lines[5])
@@ -37,7 +31,7 @@ Limerick::~Limerick()
 
 }
 
-std::string Limerick::getFormattedLimerick()
+void Limerick::printFormattedLimerick()
 {
 	for (int i = 0; i < 5; i++)
 	{

@@ -11,7 +11,7 @@ public:
 		std::string getPlaintextLine()
 		{
 			std::string textLine = "";
-			for (int i = 0; i < wordTokens.size() - 1; i++)
+			for (int i = 0; i < (int)wordTokens.size() - 1; i++)
 			{
 				textLine += wordTokens[i] + " ";
 			}
@@ -40,11 +40,11 @@ public:
 		Limerick_Line(const Limerick_Line& rhs)
 		{
 			wordTokens = rhs.wordTokens;
-			syllable_count = rhs.syllable_count;
+			//syllable_count = rhs.syllable_count;
 		}
 
 		std::vector<std::string> wordTokens;
-		int syllable_count;
+		//int syllable_count;
 	};
 
 	Limerick();
@@ -52,7 +52,7 @@ public:
 	Limerick(Limerick_Line lines[5]);
 	~Limerick();
 
-	std::string getFormattedLimerick();
+	void printFormattedLimerick();
 
 	Limerick_Line lines[5];
 

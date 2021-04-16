@@ -59,7 +59,7 @@ bool testLimerickValidator()
 		std::cout << "Test succeeded.\n";
 	}
 
-
+	return succeeded;
 }
 
 /*
