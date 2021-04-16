@@ -1,10 +1,65 @@
 #include "Limerick.h"
+#include <iostream>
 
+bool validateLimerick(Limerick limerick)
+{
+	return false;
+}
 
 bool testLimerickValidator()
 {
 	Limerick rightLimerick = Limerick("There was an old man with a beard\nwho said it is just as I feared\ntwo owls and a hen\nfour larks and a wren\nhave all built their nests in my beard");
-	Limerick wrongLimerick = Limerick("This limerick is only two lines\n");
+	Limerick wrongLimerick1 = Limerick("This limerick is only two lines\nbut eight syllables and it rhymes");
+	Limerick wrongLimerick2 = Limerick("This limerick is the right number\nof syllables but it doesn't rhyme\nthis one does not\nneither this one\nthis one has eight syllables too");
+	Limerick wrongLimerick3 = Limerick("Very big\npig\nbook and\ncrook\nseventeen gig");
+
+	bool succeeded = true;
+
+	std::cout << "Validator Test 1:\n";
+	if (validateLimerick(rightLimerick))
+	{
+		std::cout << "Test succeeded.\n";
+	}
+	else
+	{
+		std::cout << "Test failed; did not validate correct limerick as correct.\n";
+		succeeded = false;
+	}
+
+	std::cout << "Validator Test 2:\n";
+	if (validateLimerick(wrongLimerick1))
+	{
+		std::cout << "Test failed; validated limerick with two lines.\n";
+		succeeded = false;
+	}
+	else
+	{
+		std::cout << "Test succeeded.\n";
+	}
+
+	std::cout << "Validator Test 3:\n";
+	if (validateLimerick(wrongLimerick2))
+	{
+		std::cout << "Test failed; validated limerick that doesn't rhyme.\n";
+		succeeded = false;
+	}
+	else
+	{
+		std::cout << "Test succeeded.\n";
+	}
+
+	std::cout << "Validator Test 4:\n";
+	if (validateLimerick(wrongLimerick3))
+	{
+		std::cout << "Test failed; validated limerick with inconsistant syllables.\n";
+		succeeded = false;
+	}
+	else
+	{
+		std::cout << "Test succeeded.\n";
+	}
+
+
 }
 
 /*
