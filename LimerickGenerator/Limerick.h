@@ -1,12 +1,14 @@
 #pragma once
 #include <vector>
 #include <string>
+#include <sstream>
+#include <iterator>
 
 struct Limerick {
 public:
 
 	struct Limerick_Line {
-		std::string GetPlaintextLine()
+		std::string getPlaintextLine()
 		{
 			std::string textLine = "";
 			for (int i = 0; i < wordTokens.size() - 1; i++)
@@ -18,15 +20,39 @@ public:
 			return textLine;
 		}
 
+		Limerick_Line()
+		{
+
+		}
+
+		Limerick_Line(std::string line)
+		{
+			std::istringstream iss(line);
+			std::string word;
+			while (std::getline(iss, word, ' '))
+			{
+				wordTokens.push_back(word);
+			}
+
+			//TODO init syllable_count
+		}
+
+		Limerick_Line(const Limerick_Line& rhs)
+		{
+			wordTokens = rhs.wordTokens;
+			syllable_count = rhs.syllable_count;
+		}
+
 		std::vector<std::string> wordTokens;
-		std::string rhyme;
 		int syllable_count;
 	};
 
 	Limerick();
+	Limerick(std::string limerick);
+	Limerick(Limerick_Line lines[5]);
 	~Limerick();
 
-	std::string GetFormattedLimerick();
+	std::string getFormattedLimerick();
 
 	Limerick_Line lines[5];
 

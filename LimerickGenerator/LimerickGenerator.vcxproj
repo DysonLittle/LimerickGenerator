@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="Limerick.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Tests.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Limerick.h" />
